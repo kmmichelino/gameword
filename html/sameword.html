@@ -33,7 +33,7 @@
                 <a class="nav-link" href="acrword.html">Acrônimos<span class="sr-only">(página atual)</span></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="sameword.html">Palavras Iguais <span class="sr-only">(página atual)</span></a>
+                <a class="nav-link" href="sameword.html">Anagrama<span class="sr-only">(página atual)</span></a>
               </li>
           </ul>
       </nav>
@@ -42,8 +42,59 @@
     <span><img  class="img-fluid" alt="Imagem responsiva" src="/gameword/images/menuor.png"/></span>
     </div>
 
-  
-    
+    <div class="text-center">
+      <h6>ANAGRAMA</h6>
+      <p>Você sabe o que são anagramas? Para simplificar e ficar fácil o entendimento, anagramas são segundo o Dicionário de Lingua Portuguesa palavras que possuem as mesmas letras, sendo elas, consoantes ou vogais, porém que alterne sua ordem e formem outra palavra e de signficado diferente, um exemplo bem didático, seria a palavra ROMA, nela temos as letras R-O-M-A, que se invertermos as posições dessas mesmas letras conseguimos obter a palavra AMOR. Agora que você entendeu o significado que tal comparar algumas palavras e verificar se elas formam um anagrama? </p>
+      <br>
+      <p>Utilize esta ferramenta e compare se são anagramas!</p>
+    </div>
+
+    <br>
+
+    <div class="text-center">
+      <input type="text" id="inputString1" placeholder="Digite a primeira palavra">
+      <input type="text" id="inputString2" placeholder="Digite a segunda palavra">
+      <button class="btn btn-secondary" onclick="verificarAnagramas()">Verificar Anagramas</button>
+      <div id="outputString1"></div>
+      <div id="outputString2"></div>
+      <div id="resultado"></div>
+    </div>
+
+    <script>
+      function compAnagrama(string1, string2) {
+          string1 = string1.replace(/\s/g, '').toLowerCase();
+          string2 = string2.replace(/\s/g, '').toLowerCase();
+
+          if (string1.length !== string2.length) {
+              return false;
+          }
+
+          const verString1 = string1.split('').sort().join('');
+          const verString2 = string2.split('').sort().join('');
+
+          return verString1 === verString2;
+      }
+
+      function verificarAnagramas() {
+          const str1 = document.getElementById('inputString1').value;
+          const str2 = document.getElementById('inputString2').value;
+
+          const resultado = document.getElementById('resultado');
+          const resultadoVerificacao = compAnagrama(str1, str2);
+
+          const outputString1 = document.getElementById('outputString1');
+          outputString1.innerHTML = `Primeira Palavra: ${str1}`;
+
+          const outputString2 = document.getElementById('outputString2');
+          outputString2.innerHTML = `Segunda Palavra: ${str2}`;
+
+          if (resultadoVerificacao) {
+              resultado.innerHTML = `As palavras "${str1}" e "${str2}" são anagramas!!!.`;
+          } else {
+              resultado.innerHTML = `As palavras "${str1}" e "${str2}" não são anagramas!!.`;
+          }
+      }
+  </script>
     
 </body>
 </html>
