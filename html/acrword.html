@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href= "images/icon.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="style" href="style.css">
+    <title>GameWord</title>
+
+</head>
+<body class="">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">Gamer Word</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="countwords.html">Contando Palavras<span class="sr-only">(página atual)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="crazyword.html">Palavra Maluca<span class="sr-only">(página atual)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="acrword.html">Acrônimos<span class="sr-only">(página atual)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="sameword.html">Palavras Iguais <span class="sr-only">(página atual)</span></a>
+              </li>
+          </ul>
+      </nav>
+
+    <div class="container-fluid">
+    <span><img  class="img-fluid" alt="Imagem responsiva" src="/gameword/images/menuor.png"/></span>
+    </div>
+    
+    <div class="text-center">
+      <h6>ACRÔNIMOS</h6>
+      <p>Você sabe o que são acrônimos? Caso não esteja se lembrando, pois em nossa lingua portuguesa existem vários termos e significados. Segundo o Dicionário de Português, acrônimos são palavras que se formam devido a junção das primeiras letras ou das sílabas iniciais de um grupo de palavras, de uma expressão, um ótimo exemplo para fixar a ideia seria: EAD - Educação A Distância. Agora deu pra entender não é mesmo?</p>
+      <br>
+      <p>Utilize esta ferramenta e crie seus acrônimos!</p>
+    </div>
+
+    <div class="container-fluid">
+      <input type="text" id="inputFrase" placeholder="Digite sua Frase aqui">
+      <button class="btn btn-secondary" onclick="gerarAcronimo(document.getElementById('inputFrase').value)">Gerando Acrônimo</button>
+      <div id="resultado"></div>
+    </div>
+
+    <script>
+      function gerarAcronimo(frase) {
+          const palavras = frase.split(" ");
+          let acronimo = "";
+
+          for (let i = 0; i < palavras.length; i++) {
+              acronimo += palavras[i][0].toUpperCase();
+          }
+
+          const resultado = document.getElementById('resultado');
+          resultado.innerHTML = `<p>Aqui está seu Acrônimo gerado a partir de: "${frase}": ${acronimo}</p>`;
+      }
+    </script>
+
+    
+</body>
+</html>
